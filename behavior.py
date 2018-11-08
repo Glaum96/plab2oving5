@@ -41,6 +41,7 @@ class Behavior:
             if not (0.0 <= self.match_degree <= 1.0):
                 raise ValueError("Match_degree must be a float between 0 and 1, was ",
                                  self.match_degree)
+            self.weight = self.priority * self.match_degree
 
     # Performs the actual computations based on Sensob-values to produce
     # motor_recommendations (MRs), potential halt request and match_degree
