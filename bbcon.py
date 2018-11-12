@@ -64,3 +64,5 @@ class BBCON():
         # Reset all sensobs.
         for i in self.sensobs:
             i.reset()
+
+        return should_halt
