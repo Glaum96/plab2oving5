@@ -17,10 +17,16 @@ class FollowLineBehavior(Behavior):
     # Performs the actual computations based on Sensob-values to produce
     # motor_recommendations (MRs), potential halt request and match_degree
     def sense_and_act(self):
-        print("behavior value: ", self.sensobs[0].value)
-        self.match_degree =
-        self.motor_recommendation.weight = self.priority * self.match_degree              #Set the weight
-        #Set hold_flag
-        #Set MS
+        value = self.sensobs[0].get_value()
+        self.match_degree = 1
+        recommendation = 0
+        if value < 2:
+            motor_recommendation = ("L", 0.2)
+        elif value > 4:
+            motor_recommendation = ("R", 0.2)
+        else:
+            motor_recommendation = ("F", 0.2)
 
+        weight = self.priority * self.match_degree
 
+        self.motor_recommendation.update(weight,motor_recommendation, False)
