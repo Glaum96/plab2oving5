@@ -45,7 +45,7 @@ class BBCON():
             i.update()
 
         #Receive actions for each motob object, and a flag for if the robot should halt.
-        which_actions,should_halt = self.arbitrator.choose_action()
+        which_actions,should_halt = self.arbitrator.choose_action(self.active_behaviours.get_recommendation())
 
         #Updates the motobs with their corresponing action (MR) from the arbitrator.
         for i in range(len(which_actions)):
