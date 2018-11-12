@@ -13,8 +13,8 @@ class Arbitrator:
     def choose_action(self, recommendations):
         """Should return a touple containing: motor recommendation (one pr. motob) and boolean indicating
         if the run should be halted or not"""
-        #Fjern klammeparentes rundt recommendations
-        self.recommendations = [recommendations]                                  #Fils the recommendations
+        self.recommendations = recommendations                                  #Fils the recommendations
+        print("\n\nRecommendation:", self.recommendations,"\n\n")
 
         if(self.deterministic):
             return self.choose_action_deterministic()
@@ -24,7 +24,7 @@ class Arbitrator:
 
     def choose_action_deterministic(self):
         self.recommendations.sort(key=lambda x: x.weight, reverse=True)  # Sort the motor_recommendations by weight
-        return (self.recommendations[0], self.recommendations[0].halt_request)
+        return (self.recommendations[0].recommendation, self.recommendations[0].halt_request)
 
 
     def choose_action_stochastic(self):

@@ -16,7 +16,8 @@ class BBCON():
 
     def add_behavior(self,behavior):
         self.behaviors.append(behavior)
-        self.inactive_behaviors.append(behavior)
+        # Adds to active instead of inact   ive
+        self.active_behaviors.append(behavior)
 
     def add_sensob(self,sensob):
         self.sensobs.append(sensob)
@@ -55,8 +56,9 @@ class BBCON():
         which_actions, should_halt = self.arbitrator.choose_action(motor_recommendations)
 
         # Updates the motobs with their corresponing action (MR) from the arbitrator.
-        for i in range(len(which_actions)):
-            self.motobs[i].update(which_actions[i])
+        #for i in range(len(which_actions)):
+            #self.motobs[i].update(which_actions[i])
+        self.motobs[0].update(which_actions)
 
         # Waits so that the motors can start. idk.
         time.sleep(0.5)

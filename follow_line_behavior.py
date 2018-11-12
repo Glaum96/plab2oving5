@@ -22,7 +22,6 @@ class FollowLineBehavior(Behavior):
 
         value = self.sensobs[0].get_value()
         self.match_degree = 1
-        recommendation = 0
         if value < 2:
             motor_recommendation = ("L", 0.2)
         elif value > 4:
