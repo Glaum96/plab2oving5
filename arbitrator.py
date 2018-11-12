@@ -3,17 +3,14 @@ from random import choices
 class Arbitrator:
     def __init__(self, bbcon, deterministic):
         self.bbcon = bbcon                                                      #Points to bbcon
-        self.deterministic = deterministic                                      #Deterministic or stochastick?
-        self.recommendations = []                                               #Fills with MR
+        self.deterministic = deterministic                                      #Deterministic?
+        self.recommendations = []                                               #A list of motor_recommendations
 
 
-    def choose_action(self, weights):
+    def choose_action(self, recommendations):
         """Should return a touple containing: motor recommendation (one pr. motob) and boolean indicating
         if the run should be halted or not"""
-        self.recommendations.clear()                                            #Clears old recommendations
-
-        for x in self.bbcon.active_behaviours:                                  #Fils the recommendations
-            self.recommendations.append(x)
+        self.recommendations = recommendations                                  #Fils the recommendations
 
         if(self.deterministic):
             return self.choose_action_deterministic()
@@ -22,7 +19,7 @@ class Arbitrator:
 
 
     def choose_action_deterministic(self):
-        self.recommendations.sort(key=lambda x: x.weight, reverse=True)  # Sort the recommendations in decreasing order
+        self.recommendations.sort(key=lambda x: x.weight, reverse=True)  # Sort the motor_recommendations by weight
         return (self.recommendations[0], self.recommendations[0].hold_flag)
 
 
@@ -36,6 +33,6 @@ class Arbitrator:
             probability.append(x.weight/total_weight)
 
         mr = choices(self.recommendations, weights = probability, k = 1)        #Returns list with 1 element
-        return (mr[0],mr[0].hold_flag)                                          #Returns (MR, hold_flag)
+        return (mr[0].recommendation,mr[0].hold_flag)                           #Returns (MR, hold_flag)
 
 
