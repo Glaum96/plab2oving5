@@ -1,6 +1,9 @@
-from motor_recommendation import Motor_recommendation
+from motor_recommendation import MotorRecommendation
 from random import choices
+
+
 class Arbitrator:
+
     def __init__(self, bbcon, deterministic):
         self.bbcon = bbcon                                                      #Points to bbcon
         self.deterministic = deterministic                                      #Deterministic?

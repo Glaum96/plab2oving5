@@ -1,8 +1,11 @@
-class Motor_recommendation():
+
+
+class MotorRecommendation:
+
     def __init__(self):
-        self.weight = None                                          #The weight of the MR
-        self.halt_request = None                                    #halt flag
-        self.recommendation = None                                  #The recommendation
+        self.weight = None                                          # The weight of the MR (float)
+        self.halt_request = None                                    # Halt flag (terminates code run)
+        self.recommendation = None                                  # The recommendation tuple: (str, int) (see below)
         """
         ("S", x) = Rotate a little to the to either left or right, x > 0 rotate right, x < 0 rotate left
         ("L", x) = Turn left with difference x between the wheels
@@ -11,8 +14,8 @@ class Motor_recommendation():
         ("B", x) = Drive straight backward with speed x
         """
 
-    def update(self, weight, recommendation, halt_request = False):
-        #Used when updating the values
+    def update(self, weight, recommendation, halt_request=False):
+        # Used when updating the values
         self.weight = weight
-        self.halt_request = recommendation
-        self.recommendation = halt_request
+        self.halt_request = halt_request
+        self.recommendation = recommendation

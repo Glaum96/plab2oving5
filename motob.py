@@ -1,5 +1,5 @@
 from motors import Motors
-from motor_recommendation import Motor_recommendation
+from motor_recommendation import MotorRecommendation
 
 class Motob:
     def __init__(self, motors):
