@@ -14,7 +14,6 @@ class Arbitrator:
         """Should return a touple containing: motor recommendation (one pr. motob) and boolean indicating
         if the run should be halted or not"""
         self.recommendations = recommendations                                  #Fils the recommendations
-        print("\n\nRecommendation:", self.recommendations,"\n\n")
 
         if(self.deterministic):
             return self.choose_action_deterministic()

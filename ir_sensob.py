@@ -7,7 +7,7 @@ from reflectance_sensors import ReflectanceSensors
 class IRSensob(Sensob):
     def __init__(self):
         super(IRSensob, self).__init__(
-            sensors=[ReflectanceSensors()])
+            sensors=[ReflectanceSensors(auto_calibrate=True)])
 
     def update(self):
         if super(IRSensob, self).update():

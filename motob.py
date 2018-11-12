@@ -28,9 +28,12 @@ class Motob:
         #mr is motor_(recommendation, hold_flag)
         (recommendation , flag) = mr_touple
         self.hold_flag = flag
+        print("Recommendation: ", recommendation)
         (self.command,self.degree) = recommendation
+        self.operationalize()
 
     def operationalize(self):
+        print(self.command, " ", self.degree)
         #Convert a motor recommendation into one or more motor settings, and sends to motor(s) using motor_dict or elseif
         if self.hold_flag:
             self.motors.stop()

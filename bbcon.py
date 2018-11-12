@@ -58,7 +58,7 @@ class BBCON():
         # Updates the motobs with their corresponing action (MR) from the arbitrator.
         #for i in range(len(which_actions)):
             #self.motobs[i].update(which_actions[i])
-        self.motobs[0].update(which_actions)
+        self.motobs[0].update((which_actions, should_halt))
 
         # Waits so that the motors can start. idk.
         time.sleep(0.5)

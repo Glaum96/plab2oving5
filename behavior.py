@@ -7,7 +7,7 @@ class Behavior:
         self.bbcon = bbcon
         self.sensobs = []  # Set of sensobs that the Behavior object updates based on
         self.motor_recommendation = MotorRecommendation()  # MR object: contains MR,
-        self.active_flag = False  # Indicates whether Behavior is active or not
+        self.active_flag = True  # Indicates whether Behavior is active or not
         self.priority = priority  # Given constant indicating how much this Behavior-object should be prioritized
         self.match_degree = 0.0  # Float in the range [0.0, 1.0] indicating how much situation matches behavior
 

@@ -9,6 +9,7 @@ from arbitrator import Arbitrator
 from zumo_button import ZumoButton
 
 def main():
+
     bbcon1 = BBCON()
 
     line_sensor = IRSensob()
@@ -22,8 +23,10 @@ def main():
     bbcon1.motobs = [motob1]
     zumo_button = ZumoButton()
     zumo_button.wait_for_press()
-    while not bbcon1.run_one_timestep():
-        print("Bob")
+    for i in range(0, 50):
+        bbcon1.run_one_timestep()
+        print("Iteration ", i)
+    motor1.stop()
 
 
 
