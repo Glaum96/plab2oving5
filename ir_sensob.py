@@ -12,13 +12,13 @@ class IRSensob(Sensob):
 
     def update(self):
         if super(IRSensob, self).update():
-            max_val, max_index = -1, -1
+            min_val, min_index = -1, -1
             ir_vals = self.sensor_values[0]
             for i in range(0, len(ir_vals)):
-                if ir_vals[i] > max_val:
-                    max_val = ir_vals[i]
-                    max_index = i
-            self.value = max_index
+                if ir_vals[i] < min_val:
+                    min_val = ir_vals[i]
+                    min_index = i
+            self.value = min_index
 
     # I'm considering making two subclasses of IRSensob:
     # LineFollowerSensob and LineLocaterSensob.
