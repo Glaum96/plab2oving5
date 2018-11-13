@@ -26,13 +26,13 @@ class FindAndFollowRedBallBehaviour(Behavior):
             self.bbcon.activate_behaviour(self)
 
     def sense_and_act(self):
+
+        """Rewrite to use the new method in motob '("T",x)'. Instead of F and S."""
+
         print("behavior value: ", self.sensobs[0].value)
         if max(self.red_list < 500):
             which_fifth = max(self.red_list)
             degrees = 30-which_fifth*15
-
-            """Rewrite to use the new method in motob '("T",x)'. Instead of F and S."""
-
             if abs(degrees) > 10:
                 motor_recommendation = ('F',300)
             else:
