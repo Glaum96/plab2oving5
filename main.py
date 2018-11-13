@@ -15,15 +15,15 @@ def main():
     motor1 = Motors()
     motob1 = Motob(motor1)
     bbcon1.motobs = [motob1]
-
+    """
     line_sensor = IRSensob()
     line_follow = FollowLineBehavior(bbcon1, 1)
     line_follow.add_sensob(line_sensor)
     bbcon1.add_behavior(line_follow)
     bbcon1.add_sensob(line_sensor)
-
+    """
     zumo_button = ZumoButton()
-    zumo_button.wait_for_press()
+    #zumo_button.wait_for_press()
 
     motob1.update((("T", 1),False))
     """
