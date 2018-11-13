@@ -52,7 +52,8 @@ class Sensob:
 
     # Method for resetting values
     def reset(self):
-        for i in range(0, len(self.sensors)):
-            self.sensors[i].reset()
-            self.sensor_values[i] = None
-        self.value = None
+        if self.active_flag:
+            for i in range(0, len(self.sensors)):
+                self.sensors[i].reset()
+                self.sensor_values[i] = None
+            self.value = None

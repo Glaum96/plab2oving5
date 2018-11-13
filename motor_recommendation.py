@@ -3,8 +3,8 @@
 class MotorRecommendation:
 
     def __init__(self):
-        self.weight = None                                          # The weight of the MR (float)
-        self.halt_request = None                                    # Halt flag (terminates code run)
+        self.weight = 0.0                                           # The weight of the MR (float)
+        self.halt_request = False                                   # Halt flag (terminates code run)
         self.recommendation = None                                  # The recommendation tuple: (str, int) (see below)
         """
         ("S", x) = Rotate a little to the to either left or right, x > 0 rotate right, x < 0 rotate left
