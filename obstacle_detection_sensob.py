@@ -1,6 +1,7 @@
 from sensob import Sensob
 from behavior import Behavior
 from bbcon import BBCON
+import time
 from ultrasonic import Ultrasonic
 
 
@@ -19,6 +20,9 @@ class ObstacleDetectionSensob(Sensob):
             self.value = self.sensor_values[0]
             return self.value
 
+
 def main():
-    uSens = ObstacleDetectionSensob()
-    ur
+    for i in range(0, 10):
+        u_sens = ObstacleDetectionSensob()
+        u_sens.update()
+        time.sleep(0.5)
