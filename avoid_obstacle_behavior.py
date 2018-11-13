@@ -14,13 +14,13 @@ class AvoidObstacleBehavior(Behavior):
 
     # Sets active_flag to False given certain conditions (OPTIONAL to define)
     def consider_deactivation(self):
-        if self.sensobs[0].value > 5:
+        if self.sensobs[0].value > 10:
             self.active_flag = False
             self.bbcon.deactivate_behaviour(self)
 
     # Sets active_flag to True given certain conditions (OPTIONAL to define)
     def consider_activation(self):
-        if self.sensobs[0].value <= 5:
+        if self.sensobs[0].value <= 10:
             self.active_flag = True
             self.bbcon.activate_behaviour(self)
 
@@ -29,9 +29,11 @@ class AvoidObstacleBehavior(Behavior):
     def sense_and_act(self):
         print("behavior value: ", self.sensobs[0].value)
         self.match_degree = 5 / self.sensobs[0].value
-        if self.active_flag and self.sensobs[0].value < 5:
-            self.motor_recommendation = Motor_recommendation('B',300)
+        if self.match_degree > 1:
+            self.match_degree = 1
+        if self.active_flag and self.sensobs[0].value < 5.2:
+            motor_recommendation = ('B',300)
         else:
-            self.motor_recommendation = Motor_recommendation('F',300)
+            motor_recommendation = ('F',300)
 
-        self.motor_recommendation.update(self.priority * self.match_degree,motor_recommendation,halt_request)
+        self.motor_recommendation.update(self.priority * self.match_degree,motor_recommendation)
