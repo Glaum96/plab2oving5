@@ -36,6 +36,7 @@ class Motob:
         #Convert a motor recommendation into one or more motor settings, and sends to motor(s) using motor_dict or elseif
         if self.halt_request:
             self.motors.stop()
+            exit()
             # Stop code
         elif self.command == "S":              #What about timing?
             if self.degree < 0:
