@@ -40,9 +40,9 @@ class Motob:
             # Stop code
         elif self.command == "S":              #What about timing?
             if self.degree < 0:
-                self.motors.set_value([-0.2, 0.2],1)
+                self.motors.set_value([-0.5, 0.5])
             else:
-                self.motors.set_value([0.2, -0.2],1)
+                self.motors.set_value([0.5, -0.5])
         elif self.command == "L":
             self.motors.left(self.degree)
         elif self.command =="R":
