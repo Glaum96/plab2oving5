@@ -1,5 +1,5 @@
 from behavior import Behavior
-from motor_recommendation import Motor_recommendation
+from motor_recommendation import MotorRecommendation
 
 class AvoidObstacleBehavior(Behavior):
 
