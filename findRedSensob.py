@@ -20,17 +20,17 @@ class FindRedSensob(Sensob):
     def update(self):
         if super(FindRedSensob,self).update():
             self.bilde = self.sensor_values[0]
-            return self.bilde
+            self.red_list = [0, 0, 0, 0, 0]
+            self.make_image_wta()
+            self.make_red_image()
+            self.calculate_where_most_red()
+            return self.red_list
 
     def reset(self):
+        Sensob.reset(self)
         self.red_list = [0,0,0,0,0]
 
     def get_value(self):
-        self.update()
-        self.reset()
-        self.make_image_wta()
-        self.make_red_image()
-        self.calculate_where_most_red()
         return self.red_list
 
     def is_red_pixel(self,x,y):
