@@ -21,19 +21,23 @@ class FollowLineBehavior(Behavior):
         #self.counter = self.counter +1
 
         value = self.sensobs[0].get_value()
-        self.match_degree = 1
+        self.match_degree = 0.1
         halt_request = False
         if value == -1:
             motor_recommendation = ("F", 0.0)
             halt_request = True
         elif value == 0:
             motor_recommendation = ("S", 1)
+            self.match_degree = 1
         elif value == 5:
             motor_recommendation = ("S", -1)
+            self.match_degree = 1
         elif value < 2:
-            motor_recommendation = ("L", 0.5)
+            motor_recommendation = ("L", 0.9)
+            self.match_degree = 0.5
         elif value > 3:
-            motor_recommendation = ("R", 0.5)
+            motor_recommendation = ("R", 0.9)
+            self.match_degree = 0.5
         else:
             motor_recommendation = ("F", 0.2)
 

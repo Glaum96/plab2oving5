@@ -9,6 +9,7 @@ class Motors():
         self.setup()
 
     def setup(self):
+        self.stop()
         self.max = 1024
         self.high = 500
         self.normal = 300
