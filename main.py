@@ -24,11 +24,14 @@ def main():
 
     zumo_button = ZumoButton()
     zumo_button.wait_for_press()
+
+    motob1.update((("T", 1),False))
+    """
     for i in range(0, 300):
         bbcon1.run_one_timestep()
         print("Iteration ", i)
     motor1.stop()
 
 
-
+"""
 
