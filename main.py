@@ -23,7 +23,7 @@ def main():
     bbcon1.motobs = [motob1]
     zumo_button = ZumoButton()
     zumo_button.wait_for_press()
-    for i in range(0, 50):
+    for i in range(0, 10):
         bbcon1.run_one_timestep()
         print("Iteration ", i)
     motor1.stop()

@@ -7,7 +7,7 @@ class Motob:
         self.motors = motors
         self.command = None
         self.degree = None
-        self.hold_flag = False
+        self.halt_request = False
         """self.motor_dict = {
             "S" : self.motors.set_value(self.degree),     #Rotate a little to the way given, -minus is left
             "L" : self.motors.left(self.degree),
@@ -27,15 +27,14 @@ class Motob:
     def update(self, mr_touple):
         #mr is motor_(recommendation, hold_flag)
         (recommendation , flag) = mr_touple
-        self.hold_flag = flag
+        self.halt_request = flag
         print("Recommendation: ", recommendation)
         (self.command,self.degree) = recommendation
         self.operationalize()
 
     def operationalize(self):
-        print(self.command, " ", self.degree)
         #Convert a motor recommendation into one or more motor settings, and sends to motor(s) using motor_dict or elseif
-        if self.hold_flag:
+        if self.halt_request:
             self.motors.stop()
             # Stop code
         elif self.command == "S":              #What about timing?

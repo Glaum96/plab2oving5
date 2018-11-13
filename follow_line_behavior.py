@@ -22,13 +22,17 @@ class FollowLineBehavior(Behavior):
 
         value = self.sensobs[0].get_value()
         self.match_degree = 1
+        halt_request = False
         if value < 2:
-            motor_recommendation = ("L", 0.1)
-        elif value > 4:
-            motor_recommendation = ("R", 0.1)
+            motor_recommendation = ("L", 0.25)
+        elif value > 3:
+            motor_recommendation = ("R", 0.25)
+        elif value == -1:
+            motor_recommendation = ("F", 0.0)
+            halt_request = True
         else:
-            motor_recommendation = ("F", 0.1)
+            motor_recommendation = ("F", 0.25)
 
         weight = self.priority * self.match_degree
 
-        self.motor_recommendation.update(weight,motor_recommendation, False)
+        self.motor_recommendation.update(weight, motor_recommendation, halt_request)
