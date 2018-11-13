@@ -14,7 +14,19 @@ class FindAndFollowRedBallBehaviour(Behavior):
         Behavior.__init__(myBBCON,sensobs,priority)
 
     def consider_deactivation(self):
-        pass
+        self.sensobs[0].update()
+        if max(self.sensobs[0].get_value() < 500):
+            self.sensobs[0].update()
+            self.active_flag = False
+            self.bbcon.deactivate_behaviour(self)
+
 
     def consider_activation(self):
-        pass
+        if max(self.red_list >= 500):
+            self.active_flag = True
+            self.bbcon.activate_behaviour(self)
+
+    def sense_and_act(self):
+        print("behavior value: ", self.sensobs[0].value)
+        #KODE
+        self.motor_recommendation.update(self.priority * self.match_degree,motor_recommendation,halt_request)
