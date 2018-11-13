@@ -30,6 +30,9 @@ class FindAndFollowRedBallBehaviour(Behavior):
         if max(self.red_list < 500):
             which_fifth = max(self.red_list)
             degrees = 30-which_fifth*15
+
+            """Rewrite to use the new method in motob '("T",x)'. Instead of F and S."""
+
             if abs(degrees) > 10:
                 motor_recommendation = ('F',300)
             else:
