@@ -54,6 +54,7 @@ class BBCON():
         # Input argument was made above
         which_actions, should_halt = self.arbitrator.choose_action(motor_recommendations)
 
+        # This is commented out as there are only one motob
         # Updates the motobs with their corresponing action (MR) from the arbitrator.
         #for i in range(len(which_actions)):
             #self.motobs[i].update(which_actions[i])
