@@ -18,7 +18,7 @@ class Motob:
 
         (S,x) = Rotate a little to the to either left or right, x > 0 rotate right, x< 0 rotate left
         (L,x) = Turn left with difference x between the wheels
-        (R,x) = Turn left with difference x between the wheels
+        (R,x) = Turn right with difference x between the wh
         (F,x) = Drive straight forward with speed x
         (B,x) = Drive straight backward with speed x
         
