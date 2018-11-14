@@ -7,6 +7,8 @@ from ir_sensob import IRSensob
 from follow_line_behavior import FollowLineBehavior
 from arbitrator import Arbitrator
 from zumo_button import ZumoButton
+import time
+
 
 def main():
 
@@ -24,7 +26,7 @@ def main():
     """
     zumo_button = ZumoButton()
     #zumo_button.wait_for_press()
-
+    time.sleep(3)
     motob1.update((("T", 1),False))
     """
     for i in range(0, 300):
