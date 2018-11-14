@@ -31,10 +31,10 @@ class FindAndFollowRedBallBehaviour(Behavior):
             which_fifth = max(self.red_list)
             degrees = 30-which_fifth*15
             if abs(degrees) > 10:
-                motor_recommendation = ('F',300)
+                motor_recommendation = ('F',0.5)
             else:
-                motor_recommendation = ('S',degrees)
+                motor_recommendation = ('T',degrees)
         else:
-            motor_recommendation = ('S',60)
+            motor_recommendation = ('R',0.9)
 
         self.motor_recommendation.update(self.priority * self.match_degree,motor_recommendation)
