@@ -52,9 +52,11 @@ class Motob:
         elif self.command == "B":
             self.motors.backward(self.degree)
         elif self.command == "T":
+            rep = abs(self.degree / 15)         #Hvor mange ganger man skal rotere
+            rotate = rep * 0.18                 #Antall ganger ganget med 0.18
             if self.degree > 0:
-                self.motors.set_value([0.5, -0.5],0.5)
+                self.motors.set_value([0.5, -0.5],rotate)
             else:
-                self.motors.set_value([0.5, -0.5], 0.5)
+                self.motors.set_value([0.5, -0.5], rotate)
         else:
             print("\n*********** ERROR: Illegal MR given to Motob **********\n")
