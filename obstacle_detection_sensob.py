@@ -21,8 +21,3 @@ class ObstacleDetectionSensob(Sensob):
             return self.value
 
 
-def main():
-    for i in range(0, 10):
-        u_sens = ObstacleDetectionSensob()
-        u_sens.update()
-        time.sleep(0.5)
