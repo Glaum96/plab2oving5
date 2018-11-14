@@ -2,4 +2,4 @@
 .venv
 .idea/
 .venv/
-.idea/vcs.xml
+vcs.xml
