@@ -15,7 +15,7 @@ class Motob:
             "F" : self.motors.forward(self.degree),
             "B" : self.motors.backward(self.degree)
             "H" : self.motors.stop()
-            "J" : 
+            "J" : self.motors.set_values([0.5,-0.5],0.5)
         }
 
         (S,x) = Rotate a little to the to either left or right, x > 0 rotate right, x< 0 rotate left
