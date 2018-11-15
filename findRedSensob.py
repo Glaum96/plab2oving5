@@ -1,30 +1,31 @@
 from sensob import Sensob
 from camera import Camera
 from imager2 import Imager
-from behavior import Behavior
-from bbcon import BBCON
+
 
 class FindRedSensob(Sensob):
 
     def __init__(self):
         self.camera = Camera()
-        self.myBBCON = BBCON()
-        self.find_and_follow_red_ball = Behavior(self.myBBCON,1)
-        behaviors = [self.find_and_follow_red_ball]
         sensors = [self.camera]
-        Sensob.__init__(self,sensors)
-        self.bilde = Imager('testingMagnus.jpg')
-        self.delta = self.bilde.xmax//5
+        self.bilde = None
         self.red_list = [0,0,0,0,0]
+        Sensob.__init__(self,sensors)
+
 
     def update(self):
         if super(FindRedSensob,self).update():
-            self.bilde = self.sensor_values[0]
+            self.bilde = Imager('red_image.jpeg')
             self.red_list = [0, 0, 0, 0, 0]
+            self.delta = self.bilde.xmax // 5
             self.make_image_wta()
             self.make_red_image()
             self.calculate_where_most_red()
             return self.red_list
+
+    def take_pciture(self,camera):
+        im = Imager(image=camera.update()).scale(1,1)
+        im.dump_image('red_image.jpeg')
 
     def reset(self):
         Sensob.reset(self)
@@ -57,28 +58,3 @@ class FindRedSensob(Sensob):
                 if self.is_red_pixel(i,j):
                     which_fifth = i//self.delta
                     self.red_list[which_fifth] += 1
-
-"""
-    #Must be run after calculate_where_most_red
-    def make_mr(self):
-        if max(self.red_list < 500):
-            which_fifth = max(self.red_list)
-            degrees = 30-which_fifth*15
-            if abs(degrees) > 10:
-                mr = (('F',300),False)
-            else:
-                mr = (('S',degrees),False)
-
-        else:
-            mr = (('S'),60,False)
-        return mr
-"""
-
-test = FindRedSensob()
-test.bilde.display()
-test.make_image_wta()
-test.bilde.display()
-test.make_red_image()
-test.bilde.display()
-test.calculate_where_most_red()
-print(test.red_list)
