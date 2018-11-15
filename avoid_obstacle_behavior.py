@@ -31,12 +31,16 @@ class AvoidObstacleBehavior(Behavior):
         self.match_degree = 5 / (self.sensobs[0].value + 0.01)
         if self.match_degree > 1:
             self.match_degree = 1
+        elif self.match_degree < 0.8:
+            self.match_degree = 0.01
+        motor_recommendation = ('H',0.0)
+        """
         if self.active_flag and (self.sensobs[0].value < 6.0
                                  or self.sensobs[0].value > 3000):
             motor_recommendation = ('H',0.0)
         else:
             motor_recommendation = ('F',0.2)
-           
+        """
         if self.sensobs[0].value == 0:
             motor_recomendation = ('H',0.0)
             self.match_degree = 0
