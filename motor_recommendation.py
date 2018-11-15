@@ -12,6 +12,7 @@ class MotorRecommendation:
         ("R", x) = Turn left with difference x between the wheels
         ("F", x) = Drive straight forward with speed x
         ("B", x) = Drive straight backward with speed x
+        (T,x) = Rotate IN PLACE for 0.5 sec to right or left, depending on x. x<0 rotates clockwise
         ("H", x) = Stand still
         """
 
