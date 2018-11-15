@@ -14,26 +14,28 @@ class FindAndFollowRedBallBehavior(Behavior):
         #print("Self.sensobs: ",self.sensobs)
         #self.sensobs[0].update()
         #print("Self.sensobs[0].get_value():",self.sensobs[0].get_value())
-        self.red_list = [0] * 5
+        self.sensobs[0].value = [0] * 5
 
     def consider_deactivation(self):
-        self.sensobs[0].update()
-        if max(self.red_list) < 150:
+        print("Sensor values: ", self.sensobs[0].value)
+        print("Max: ", max(self.sensobs[0].value))
+        if max(self.sensobs[0].value) < 150:
+            print("Deactivating")
             self.active_flag = False
             self.bbcon.deactivate_behavior(self)
 
 
     def consider_activation(self):
-        if max(self.red_list >= 150):
+        if max(self.sensobs[0].value) >= 150:
             self.active_flag = True
             self.bbcon.activate_behavior(self)
 
     def sense_and_act(self):
         print("behavior value: ", self.sensobs[0].value)
         print("Now in sense_and_act-function")
-        print("Red list:",self.red_list)
-        if max(self.red_list < 150):
-            which_fifth = max(self.red_list)
+        print("Red list:",self.sensobs[0].value)
+        if max(self.sensobs[0].value) < 150:
+            which_fifth = max(self.sensobs[0].value)
             degrees = 30-which_fifth*15
             if abs(degrees) > 10:
                 motor_recommendation = ('F',0.3)
