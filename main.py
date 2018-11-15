@@ -31,10 +31,13 @@ def main():
     bbcon1.add_behavior(line_follow)
     bbcon1.add_sensob(line_sensor)
     '''
-    zumo_button = ZumoButton()
-    zumo_button.wait_for_press()
-    
-    for i in range(0, 10):
-        bbcon1.run_one_timestep()
-        print("Iteration ", i)
-    motor1.stop()
+    q = ""
+    while q is not 'q':
+        zumo_button = ZumoButton()
+        zumo_button.wait_for_press()
+
+        for i in range(0, 10):
+            bbcon1.run_one_timestep()
+            print("Iteration ", i)
+        motor1.stop()
+        q = input("Press 'q' to quit: ")
