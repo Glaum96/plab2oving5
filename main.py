@@ -30,7 +30,7 @@ def main():
 
     # Collision avoidance
     ultra_sensor = ObstacleDetectionSensob()                    # Create obstacle sensob
-    avoid_object = AvoidObstacleBehavior(bbcon1, 1)             # Create obstacle Behavior
+    avoid_object = AvoidObstacleBehavior(bbcon1, 1.5)             # Create obstacle Behavior
     ultra_sensor.add_behavior(avoid_object)                     # Give sensob the behavior
 
     bbcon1.add_behavior(avoid_object)                           # Give BBCON the behavior
@@ -54,6 +54,7 @@ def main():
     while q is not 'q':
 
         for i in range(0, 100):
+            print("Iteration " + str(i))
             bbcon1.run_one_timestep()
         motor1.stop()
         q = input("Press 'q' to quit: ")
