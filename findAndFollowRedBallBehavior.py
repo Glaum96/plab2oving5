@@ -30,6 +30,7 @@ class FindAndFollowRedBallBehavior(Behavior):
 
     def sense_and_act(self):
         print("behavior value: ", self.sensobs[0].value)
+        print("Red list:",self.red_list)
         if max(self.red_list < 500):
             which_fifth = max(self.red_list)
             degrees = 30-which_fifth*15
@@ -38,6 +39,6 @@ class FindAndFollowRedBallBehavior(Behavior):
             else:
                 motor_recommendation = ('T',degrees)
         else:
-            motor_recommendation = ('T',1)
+            motor_recommendation = ('J',1)
 
         self.motor_recommendation.update(self.priority * self.match_degree,motor_recommendation)
