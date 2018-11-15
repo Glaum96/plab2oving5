@@ -66,7 +66,7 @@ class BBCON():
         self.motobs[0].update((which_actions, should_halt))
 
         # Waits so that the motors can start. idk.
-        time.sleep(0.25)
+        #time.sleep(0.25)           I removed this sleep, as it was added in motob instead.
 
         # Reset all sensobs.
         for sensob in self.sensobs:

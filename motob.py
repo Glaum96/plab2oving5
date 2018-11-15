@@ -49,11 +49,11 @@ class Motob:
             else:
                 self.motors.set_value([-0.5, 0.5], 0.2)
         elif self.command == "L":
-            self.motors.left(self.degree)
+            self.motors.left(self.degree, 0.25)
         elif self.command == "R":
-            self.motors.right(self.degree)
+            self.motors.right(self.degree, 0.25)
         elif self.command == "F":
-            self.motors.forward(self.degree)
+            self.motors.forward(self.degree, 0.25)
         elif self.command == "B":
            print("\n---------Tries to reverse---------\n")
            exit()
