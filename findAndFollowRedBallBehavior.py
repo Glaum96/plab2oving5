@@ -38,6 +38,6 @@ class FindAndFollowRedBallBehavior(Behavior):
             else:
                 motor_recommendation = ('T',degrees)
         else:
-            motor_recommendation = ('T',1)
+            motor_recommendation = ('J',1)
 
         self.motor_recommendation.update(self.priority * self.match_degree,motor_recommendation)
