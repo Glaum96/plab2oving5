@@ -36,8 +36,8 @@ def main():
     line_follow = FollowLineBehavior(bbcon1, 1)                 # Create linefollow behavior
     line_follow.add_sensob(line_sensor)                         # Give linefollow sin sensob
 
-    bbcon1.add_behavior(line_follow)                            # Give linefollow to BBCON
-    bbcon1.add_sensob(line_sensor)                              # Give Ir sensob to BBCON
+    bbcon1.add_behavior(line_follow)                            # Give BBCON the linefollow
+    bbcon1.add_sensob(line_sensor)                              # Give BBCON the IR sensob
 
     print("\nAll creation is done, entering main loop\n")
 
