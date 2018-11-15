@@ -55,6 +55,8 @@ def main():
 
         for i in range(0, 100):
             print("Iteration " + str(i))
-            bbcon1.run_one_timestep()
+            if bbcon1.run_one_timestep():
+                motor1.stop()
+                exit()
         motor1.stop()
         q = input("Press 'q' to quit: ")

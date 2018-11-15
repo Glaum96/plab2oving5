@@ -55,8 +55,8 @@ class BBCON():
         # Receive actions for each motob object, and a flag for if the robot should halt.
         # Input argument was made above
         if len(motor_recommendations) is 0:
-            print("\nNo recomendations, exiting...\n")
-            exit()
+            print("\nNo recommendations, exiting...\n")
+            return False
         which_actions, should_halt = self.arbitrator.choose_action(motor_recommendations)
 
         # This is commented out as there are only one motob
