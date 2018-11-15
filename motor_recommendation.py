@@ -12,6 +12,7 @@ class MotorRecommendation:
         ("R", x) = Turn left with difference x between the wheels
         ("F", x) = Drive straight forward with speed x
         ("B", x) = Drive straight backward with speed x
+        ("H", x) = Stand still
         """
 
     def update(self, weight, recommendation, halt_request=False):
