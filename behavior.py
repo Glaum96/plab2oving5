@@ -29,6 +29,8 @@ class Behavior:
     # NOTE: DO NOT REDEFINE update()-method in subclasses
     def update(self):
         # Performs tests first to see whether object should (de)activate or not
+        print("Sensor values: ", self.sensobs[0].value)
+        print("Max: ", max(self.sensobs[0].value))
         print("Behavior active before: ", self.active_flag)
         if self.active_flag:
             self.consider_deactivation()

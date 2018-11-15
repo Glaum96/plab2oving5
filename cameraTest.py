@@ -24,8 +24,6 @@ def main():
     camera_sensor = FindRedSensob()  # Create obstacle sensob
     find_and_follow_behavior = FindAndFollowRedBallBehavior(bbcon1, 3)  # Create obstacle Behavior
     camera_sensor.add_behavior(find_and_follow_behavior)  # Give sensob the behavior
-    print("Self.sensobs[0].get_value():", find_and_follow_behavior.sensobs)
-    #print("Self.sensobs[0].get_value():", self.sensobs[0].get_value())
 
     bbcon1.add_behavior(find_and_follow_behavior)  # Give BBCON the behavior
     bbcon1.add_sensob(camera_sensor)
