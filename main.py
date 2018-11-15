@@ -37,3 +37,6 @@ def main():
         print("Iteration ", i)
     motor1.stop()
 
+
+if __name__ == '__main__':
+    main()
