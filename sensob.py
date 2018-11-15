@@ -59,8 +59,7 @@ class Sensob:
             self.value = 0
 
     def __str__(self):
-        s = "Sensob["
+        s = str(self.__class__.__name__)[0:5] + "Sensob["
         s += "value: " + str("%.2f" % self.value) + ", "
-        s += "active: " + str(self.active_flag) + ", "
-        s += str(self.__class__.__name__) + "]"
+        s += "active: " + str(self.active_flag) + "]"
         return s
