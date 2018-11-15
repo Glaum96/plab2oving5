@@ -56,6 +56,7 @@ class Motob:
             self.motors.backward(self.degree)
         elif self.command == "T":
             """
+            # This is the more advanced method that rotates better, but takes more time to make
             rep = abs(self.degree / 15)         #Hvor mange ganger man skal rotere
             rotate = rep * 0.18                 #Antall ganger ganget med 0.18
             if self.degree > 0:
@@ -64,6 +65,8 @@ class Motob:
                 self.motors.set_value([0.5, -0.5], rotate)
             """
 
+            """This is a simple version, which only rotates a little. If it rotates too much, then 
+            change the the last 0.5 in both commands below to something smaller, like 0.25"""
             if self.degree > 0:
                 self.motors.set_value([0.5, -0.5], 0.5)
             else:
