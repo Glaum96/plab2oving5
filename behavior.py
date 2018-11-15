@@ -57,9 +57,10 @@ class Behavior:
         # NOTE: halt_request argument above can be left out from method call
 
     def __str__(self):
-        s = str(self.__class__.__name__) + " ["
+        s = "Behavior["
         s += "pri: " + str(self.priority) + ", "
         s += "weight: " + str("%.2f" % self.motor_recommendation.weight) + ", "
         s += "rec: " + str(self.motor_recommendation.recommendation) + ", "
-        s += "halt: " + str(self.motor_recommendation.halt_request) + "]"
+        s += "halt: " + str(self.motor_recommendation.halt_request) + ", "
+        s += str(self.__class__.__name__) + "]"
         return s

@@ -59,6 +59,7 @@ class Sensob:
             self.value = 0
 
     def __str__(self):
-        s = str(self.__class__.__name__) + " ["
-        s += "value: " + str("%.2f" % self.value) + "]"
+        s = "Sensob["
+        s += "value: " + str("%.2f" % self.value) + ", "
+        s += str(self.__class__.__name__) + "]"
         return s
