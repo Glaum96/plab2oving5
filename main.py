@@ -60,7 +60,7 @@ def main():
     q = input("Press 'q' to quit: ")
 
     while q is not 'q':
-
+                                                                #Runs 100 timesteps. Stops if q is pressed.
         for i in range(0, 100):
             print("\nIteration " + str(i))
             if bbcon1.run_one_timestep():

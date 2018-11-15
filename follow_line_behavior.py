@@ -23,28 +23,29 @@ class FollowLineBehavior(Behavior):
         value = self.sensobs[0].get_value()
         self.match_degree = 0.4
         halt_request = False
-        if value == -1:
+        if value == -1:                         #When liftet up, to stop the program.
             motor_recommendation = ("H", 0.0)
             halt_request = True
             self.priority = 100
         elif value == -2:                       #This means that all readings are outside the line
             motor_recommendation = ("R", 0.4)
             self.match_degree = 0.01
-        elif value == 0:
+        elif value == 0:                        #If line is under the sensor to the left, then turn to the right. 
             motor_recommendation = ("S", 1)
             self.match_degree = 1
         elif value == 5:
-            motor_recommendation = ("S", -1)
+            motor_recommendation = ("S", -1)    #If line is under the sensor to the right, then turn to the left.
             self.match_degree = 1
         elif value < 2:
-            motor_recommendation = ("L", 0.4)
+            motor_recommendation = ("L", 0.4)   #If the line is under the sensor to the middle right, then turn slightly to the . 
             self.match_degree = 0.6
         elif value > 3:
-            motor_recommendation = ("R", 0.4)
+            motor_recommendation = ("R", 0.4)   #If the line is under the sensor to the middle left, then turn slightly to the right.
             self.match_degree = 0.6
         else:
-            motor_recommendation = ("F", 0.2)
+            motor_recommendation = ("F", 0.2)   #If the line is under the middle sensor, then move forward.
 
         weight = self.priority * self.match_degree
 
-        self.motor_recommendation.update(weight, motor_recommendation, halt_request)
+        self.motor_recommendation.update(weight, motor_recommendation, halt_request)    #Updates the MR.
+ 

@@ -12,8 +12,7 @@ class ObstacleDetectionSensob(Sensob):
     def __init__(self):
         Sensob.__init__(self, [Ultrasonic()])
 
-    # This is the method that calculates the value used by Behavior-objects,
-    # will be overwritten in subclasses
+    #Updates teh sensor values in the super-update. Updates its own value and returns it.
     def update(self):
         if super(ObstacleDetectionSensob,self).update():
             self.value = self.sensor_values[0]

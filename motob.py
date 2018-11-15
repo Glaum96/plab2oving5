@@ -8,6 +8,8 @@ class Motob:
         self.command = None
         self.degree = None
         self.halt_request = False
+       
+        #Look up for the programmer.
         """self.motor_dict = {
             "S" : self.motors.set_value(self.degree),     #Rotate a little to the way given, -minus is left
             "L" : self.motors.left(self.degree),
@@ -40,23 +42,23 @@ class Motob:
         if self.halt_request:
             self.motors.stop()
             exit()
-        elif self.command == "H":
+        elif self.command == "H":                       #Halt. To stop the robot.
             self.motors.stop()
-        elif self.command == "S":              #What about timing?
+        elif self.command == "S":                       #To rotate a little to the right or the left depending on the sign of the value.
             if self.degree < 0:
                 self.motors.set_value([0.5, -0.5], 0.2)
             else:
                 self.motors.set_value([-0.5, 0.5], 0.2)
-        elif self.command == "L":
+        elif self.command == "L":                       #To turn to the Left
             self.motors.left(self.degree, 0.25)
-        elif self.command == "R":
+        elif self.command == "R":                       #To turn to the right
             self.motors.right(self.degree, 0.25)
-        elif self.command == "F":
-            self.motors.forward(self.degree, 0.35)
-        elif self.command == "B":
+        elif self.command == "F":                       #To move forward
+            self.motors.forward(self.degree, 0.35)      
+        elif self.command == "B":                       #To move backwards
            print("\n---------Tries to reverse---------\n")
            exit()
-        elif self.command == "T":
+        elif self.command == "T":                       
             """
             # This is the more advanced method that rotates better, but takes more time to make
             rep = abs(self.degree / 15)         #Hvor mange ganger man skal rotere
