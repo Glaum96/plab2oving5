@@ -11,6 +11,9 @@ class FindAndFollowRedBallBehavior(Behavior):
         myFindRedSensob = FindRedSensob()
         sensobs = [myFindRedSensob]
         Behavior.__init__(self,myBBCON,priority)
+        print("Self.sensobs[0].get_value():",self.sensobs[0].get_value())
+        self.sensobs[0].update()
+        print("Self.sensobs[0].get_value():",self.sensobs[0].get_value())
         self.red_list = self.sensobs[0].get_value()
 
     def consider_deactivation(self):
