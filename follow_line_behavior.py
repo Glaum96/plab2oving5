@@ -33,10 +33,10 @@ class FollowLineBehavior(Behavior):
             motor_recommendation = ("S", -1)
             self.match_degree = 1
         elif value < 2:
-            motor_recommendation = ("L", 0.7)
+            motor_recommendation = ("L", 0.9)
             self.match_degree = 0.6
         elif value > 3:
-            motor_recommendation = ("R", 0.7)
+            motor_recommendation = ("R", 0.9)
             self.match_degree = 0.6
         else:
             motor_recommendation = ("F", 0.2)
