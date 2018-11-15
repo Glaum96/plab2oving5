@@ -30,7 +30,7 @@ def main():
 
     # Collision avoidance
     ultra_sensor = ObstacleDetectionSensob()                    # Create obstacle sensob
-    avoid_object = AvoidObstacleBehavior(bbcon1, 1.5)             # Create obstacle Behavior
+    avoid_object = AvoidObstacleBehavior(bbcon1, 1)             # Create obstacle Behavior
     ultra_sensor.add_behavior(avoid_object)                     # Give sensob the behavior
 
     bbcon1.add_behavior(avoid_object)                           # Give BBCON the behavior
@@ -38,7 +38,7 @@ def main():
 
     # Line follow
     line_sensor = IRSensob()                                    # Create IR sensob
-    line_follow = FollowLineBehavior(bbcon1, 1)                 # Create linefollow behavior
+    line_follow = FollowLineBehavior(bbcon1, 1.5)                 # Create linefollow behavior
     line_follow.add_sensob(line_sensor)                         # Give linefollow sin sensob
 
     bbcon1.add_behavior(line_follow)                            # Give BBCON the linefollow
