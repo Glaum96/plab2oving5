@@ -20,6 +20,7 @@ class FindRedSensob(Sensob):
             self.make_image_wta()
             self.make_red_image()
             self.calculate_where_most_red()
+            print(self.red_list)
             return self.red_list
 
     def take_picture(self):
