@@ -57,7 +57,8 @@ class Sensob:
                 self.sensors[i].reset()
                 self.sensor_values[i] = None
             self.value = 0
-
+    
+    #Prints the sensob object with name, value and active flag.
     def __str__(self):
         s = str(self.__class__.__name__)[0:-1] + "Sensob["
         s += "value: "
