@@ -9,7 +9,7 @@ class FindAndFollowRedBallBehavior(Behavior):
 
     def __init__(self,myBBCON,priority):
         myFindRedSensob = FindRedSensob()
-        sensobs = [myFindRedSensob]
+        self.sensobs = [myFindRedSensob]
         Behavior.__init__(self,myBBCON,priority)
         print("Self.sensobs[0].get_value():",self.sensobs[0].get_value())
         self.sensobs[0].update()
@@ -38,6 +38,6 @@ class FindAndFollowRedBallBehavior(Behavior):
             else:
                 motor_recommendation = ('T',degrees)
         else:
-            motor_recommendation = ('J',1)
+            motor_recommendation = ('T',1)
 
         self.motor_recommendation.update(self.priority * self.match_degree,motor_recommendation)
