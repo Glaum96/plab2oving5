@@ -15,6 +15,7 @@ class FindRedSensob(Sensob):
 
     def update(self):
         if super(FindRedSensob,self).update():
+            self.take_picture(self.camera)
             self.bilde = Imager('red_image.jpeg')
             self.red_list = [0, 0, 0, 0, 0]
             self.delta = self.bilde.xmax // 5
@@ -23,7 +24,7 @@ class FindRedSensob(Sensob):
             self.calculate_where_most_red()
             return self.red_list
 
-    def take_pciture(self,camera):
+    def take_picture(self,camera):
         im = Imager(image=camera.update()).scale(1,1)
         im.dump_image('red_image.jpeg')
 
