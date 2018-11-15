@@ -8,25 +8,25 @@ from bbcon import BBCON
 class FindAndFollowRedBallBehavior(Behavior):
 
     def __init__(self,myBBCON,priority):
-        myFindRedSensob = FindRedSensob()
-        self.sensobs = [myFindRedSensob]
+        #myFindRedSensob = FindRedSensob()
+        #self.sensobs = [myFindRedSensob]
         Behavior.__init__(self,myBBCON,priority)
-        print("Self.sensobs[0].get_value():",self.sensobs[0].get_value())
-        self.sensobs[0].update()
-        print("Self.sensobs[0].get_value():",self.sensobs[0].get_value())
-        self.red_list = self.sensobs[0].get_value()
+        #print("Self.sensobs: ",self.sensobs)
+        #self.sensobs[0].update()
+        #print("Self.sensobs[0].get_value():",self.sensobs[0].get_value())
+        self.red_list = [0] * 5
 
     def consider_deactivation(self):
         self.sensobs[0].update()
         if max(self.red_list) < 300:
             self.active_flag = False
-            self.bbcon.deactivate_behaviour(self)
+            self.bbcon.deactivate_behavior(self)
 
 
     def consider_activation(self):
         if max(self.red_list >= 300):
             self.active_flag = True
-            self.bbcon.activate_behaviour(self)
+            self.bbcon.activate_behavior(self)
 
     def sense_and_act(self):
         print("behavior value: ", self.sensobs[0].value)

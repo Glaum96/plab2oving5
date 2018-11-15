@@ -6,16 +6,14 @@ from imager2 import Imager
 class FindRedSensob(Sensob):
 
     def __init__(self):
-        self.camera = Camera()
-        sensors = [self.camera]
         self.bilde = None
         self.red_list = [0,0,0,0,0]
-        Sensob.__init__(self,sensors)
+        Sensob.__init__(self,[Camera()])
 
 
     def update(self):
         if super(FindRedSensob,self).update():
-            self.take_picture(self.camera)
+            self.take_picture()
             self.bilde = Imager('red_image.jpeg')
             self.red_list = [0, 0, 0, 0, 0]
             self.delta = self.bilde.xmax // 5
@@ -24,8 +22,8 @@ class FindRedSensob(Sensob):
             self.calculate_where_most_red()
             return self.red_list
 
-    def take_picture(self,camera):
-        im = Imager(image=camera.update()).scale(1,1)
+    def take_picture(self):
+        im = Imager(image=self.sensors[0].update()).scale(1,1)
         im.dump_image('red_image.jpeg')
 
     def reset(self):
