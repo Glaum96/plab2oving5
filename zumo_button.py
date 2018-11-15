@@ -9,6 +9,7 @@ class ZumoButton():
         wp.pullUpDnControl(22, 2)
 
     def wait_for_press(self):
+        print("Waiting for buttonpress...")
         read_val = wp.digitalRead(22)
         while read_val:
             read_val = wp.digitalRead(22)
