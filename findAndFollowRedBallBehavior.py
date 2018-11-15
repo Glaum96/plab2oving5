@@ -5,7 +5,7 @@ from imager2 import Imager
 from behavior import Behavior
 from bbcon import BBCON
 
-class FindAndFollowRedBallbehavior(Behavior):
+class FindAndFollowRedBallBehavior(Behavior):
 
     def __init__(self,myBBCON,priority):
         myFindRedSensob = FindRedSensob()
@@ -17,13 +17,13 @@ class FindAndFollowRedBallbehavior(Behavior):
         self.sensobs[0].update()
         if max(self.red_list) < 300:
             self.active_flag = False
-            self.bbcon.deactivate_behavior(self)
+            self.bbcon.deactivate_behaviour(self)
 
 
     def consider_activation(self):
         if max(self.red_list >= 300):
             self.active_flag = True
-            self.bbcon.activate_behavior(self)
+            self.bbcon.activate_behaviour(self)
 
     def sense_and_act(self):
         print("behavior value: ", self.sensobs[0].value)
@@ -31,10 +31,10 @@ class FindAndFollowRedBallbehavior(Behavior):
             which_fifth = max(self.red_list)
             degrees = 30-which_fifth*15
             if abs(degrees) > 10:
-                motor_recommendation = ('F',0.5)
+                motor_recommendation = ('F',0.3)
             else:
                 motor_recommendation = ('T',degrees)
         else:
-            motor_recommendation = ('R',0.9)
+            motor_recommendation = ('T',1)
 
         self.motor_recommendation.update(self.priority * self.match_degree,motor_recommendation)
