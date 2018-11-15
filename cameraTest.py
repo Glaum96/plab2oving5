@@ -3,10 +3,6 @@ from behavior import Behavior
 from sensob import Sensob
 from motob import Motob
 from motors import Motors
-from obstacle_detection_sensob import ObstacleDetectionSensob
-from avoid_obstacle_behavior import AvoidObstacleBehavior
-from ir_sensob import IRSensob
-from follow_line_behavior import FollowLineBehavior
 from arbitrator import Arbitrator
 from zumo_button import ZumoButton
 from findRedSensob import FindRedSensob
