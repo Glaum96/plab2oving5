@@ -60,6 +60,11 @@ class Sensob:
 
     def __str__(self):
         s = str(self.__class__.__name__)[0:5] + "Sensob["
-        s += "value: " + str("%.2f" % self.value) + ", "
+        s += "value: "
+        if isinstance(self.value, float):
+            s += str("%.2f" % self.value)
+        else:
+            s += str(self.value)
+        s += ", "
         s += "active: " + str(self.active_flag) + "]"
         return s
