@@ -53,7 +53,8 @@ class Motob:
         elif self.command == "F":
             self.motors.forward(self.degree)
         elif self.command == "B":
-            self.motors.backward(self.degree)
+           print("\n---------Tries to reverse---------\n")
+           exit()
         elif self.command == "T":
             """
             # This is the more advanced method that rotates better, but takes more time to make
