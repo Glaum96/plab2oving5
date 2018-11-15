@@ -38,12 +38,13 @@ class BBCON():
 
     def run_one_timestep(self):
         # Update all sensobs.
-        for i in self.sensobs:
-            i.update()
+        for sensob in self.sensobs:
+            sensob.update()
+            print(sensob)
 
         # Update all behaviors
-        for i in self.behaviors:
-            i.update()
+        for sensob in self.behaviors:
+            sensob.update()
 
         # BBCON creates list of motor_recommendation objects from active_behaviors
         motor_recommendations = []
@@ -68,7 +69,7 @@ class BBCON():
         time.sleep(0.25)
 
         # Reset all sensobs.
-        for i in self.sensobs:
-            i.reset()
+        for sensob in self.sensobs:
+            sensob.reset()
 
         return should_halt

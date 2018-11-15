@@ -16,7 +16,6 @@ class ObstacleDetectionSensob(Sensob):
     # will be overwritten in subclasses
     def update(self):
         if super(ObstacleDetectionSensob,self).update():
-            print("ultrasonic sensor val: ", self.sensor_values[0])
             self.value = self.sensor_values[0]
             return self.value
 

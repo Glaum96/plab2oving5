@@ -17,9 +17,7 @@ class IRSensob(Sensob):
                 if 0.0 < ir_vals[i] < min_val:
                     min_val = ir_vals[i]
                     min_index = i
-            print("Sensor values sensob: ", self.sensor_values[0])
             self.value = min_index
-            print("Value: ", self.value)
 
     # I'm considering making two subclasses of IRSensob:
     # LineFollowerSensob and LineLocaterSensob.

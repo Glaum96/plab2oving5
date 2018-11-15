@@ -29,7 +29,6 @@ class AvoidObstacleBehavior(Behavior):
     # Performs the actual computations based on Sensob-values to produce
     # motor_recommendations (MRs), potential halt request and match_degree
     def sense_and_act(self):
-        print("behavior value: ", self.sensobs[0].value)
         self.match_degree = 5 / (self.sensobs[0].value + 0.01)
         if self.match_degree > 1:
             self.match_degree = 1
