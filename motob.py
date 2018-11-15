@@ -15,6 +15,7 @@ class Motob:
             "F" : self.motors.forward(self.degree),
             "B" : self.motors.backward(self.degree)
             "H" : self.motors.stop()
+            "J" : 
         }
 
         (S,x) = Rotate a little to the to either left or right, x > 0 rotate right, x< 0 rotate left
@@ -24,6 +25,7 @@ class Motob:
         (B,x) = Drive straight backward with speed x
         (T,x) = Rotate in place for 0.5 sec to right or left, depending on x. x<0 rotates clockwise
         (H,x) = Hold still
+        (J, x) = Jump around 60 degrees left
         """
 
     def update(self, mr_touple):
@@ -69,9 +71,12 @@ class Motob:
             """This is a simple version, which only rotates a little. If it rotates too much, then 
             change the the last 0.5 in both commands below to something smaller, like 0.25"""
             if self.degree > 0:
-                self.motors.set_value([0.5, -0.5], 0.5)
+                self.motors.set_value([0.5, -0.5], 0.2)
             else:
-                self.motors.set_value([0.5, -0.5], 0.5)
+                self.motors.set_value([0.5, -0.5], 0.2)
+
+        elif self.command == "J":
+            self.motors.set_value([0.5,0.5], 0.5)
         else:
             print("\n*********** ERROR: Illegal MR given to Motob **********\n")
             exit()
