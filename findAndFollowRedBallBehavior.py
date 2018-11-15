@@ -18,20 +18,20 @@ class FindAndFollowRedBallBehavior(Behavior):
 
     def consider_deactivation(self):
         self.sensobs[0].update()
-        if max(self.red_list) < 300:
+        if max(self.red_list) < 150:
             self.active_flag = False
             self.bbcon.deactivate_behavior(self)
 
 
     def consider_activation(self):
-        if max(self.red_list >= 300):
+        if max(self.red_list >= 150):
             self.active_flag = True
             self.bbcon.activate_behavior(self)
 
     def sense_and_act(self):
         print("behavior value: ", self.sensobs[0].value)
         print("Red list:",self.red_list)
-        if max(self.red_list < 500):
+        if max(self.red_list < 150):
             which_fifth = max(self.red_list)
             degrees = 30-which_fifth*15
             if abs(degrees) > 10:
