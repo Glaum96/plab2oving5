@@ -29,10 +29,12 @@ class Behavior:
     # NOTE: DO NOT REDEFINE update()-method in subclasses
     def update(self):
         # Performs tests first to see whether object should (de)activate or not
+        print("Behavior active before: ", self.active_flag)
         if self.active_flag:
             self.consider_deactivation()
         else:
             self.consider_activation()
+        print("Behavior active after: ", self.active_flag)
         # And then performs updates if Behavior is active
         if self.active_flag and len(self.sensobs) != 0:
             self.sense_and_act()

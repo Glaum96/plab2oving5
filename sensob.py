@@ -9,7 +9,7 @@ class Sensob:
         self.behaviors = []  # List of behaviors (no duplicates) that use the Sensob-object
         self.active_flag = True  # Used by BBCON to only update sensors when their sensor objects are active
         self.sensor_values = [None] * len(sensors)  # List of raw values collected from the sensors
-        self.value = 0 # The preprocessed value that Behavior-objects will use
+        self.value = 0  # The preprocessed value that Behavior-objects will use
 
     def add_behavior(self, behavior):  # Adds behavior, as long as it is not already in the list
         if behavior not in self.behaviors:

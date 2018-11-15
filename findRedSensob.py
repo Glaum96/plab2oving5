@@ -7,7 +7,7 @@ class FindRedSensob(Sensob):
 
     def __init__(self):
         self.bilde = None
-        self.red_list = [0,0,0,0,0]
+        self.value = [0,0,0,0,0]
         Sensob.__init__(self,[Camera()])
 
 
@@ -15,13 +15,15 @@ class FindRedSensob(Sensob):
         if super(FindRedSensob,self).update():
             self.take_picture()
             self.bilde = Imager('red_image.jpeg')
-            self.red_list = [0, 0, 0, 0, 0]
+            self.value = [0, 0, 0, 0, 0]
             self.delta = self.bilde.xmax // 5
             self.make_image_wta()
             self.make_red_image()
             self.calculate_where_most_red()
-            print(self.red_list)
-            return self.red_list
+            print(self.value)
+            print("sensob active: ", self.active_flag)
+            
+            return self.value
 
     def take_picture(self):
         im = Imager(image=self.sensors[0].update()).scale(1,1)
@@ -29,10 +31,10 @@ class FindRedSensob(Sensob):
 
     def reset(self):
         Sensob.reset(self)
-        self.red_list = [0,0,0,0,0]
+        self.value = [0,0,0,0,0]
 
     def get_value(self):
-        return self.red_list
+        return self.value
 
     def is_red_pixel(self,x,y):
         pixel = self.bilde.get_pixel(x,y)
@@ -57,4 +59,4 @@ class FindRedSensob(Sensob):
             for j in range(self.bilde.ymax):
                 if self.is_red_pixel(i,j):
                     which_fifth = i//self.delta
-                    self.red_list[which_fifth] += 1
+                    self.value[which_fifth] += 1
