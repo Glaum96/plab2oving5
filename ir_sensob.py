@@ -18,7 +18,10 @@ class IRSensob(Sensob):
                     min_val = ir_vals[i]
                     min_index = i
 
-            print("Min value = ", ir_vals[min_index])
+            #If the lowest value is too bright, its outside the line
+            if min_index is not -1:
+                if ir_vals[min_index] > 0.65:
+                    min_index = -2
             self.value = min_index
 
     # I'm considering making two subclasses of IRSensob:
