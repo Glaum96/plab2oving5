@@ -24,7 +24,7 @@ class FindAndFollowRedBallBehavior(Behavior):
 
 
     def consider_activation(self):
-        if max(self.red_list >= 150):
+        if max(self.red_list) >= 150:
             self.active_flag = True
             self.bbcon.activate_behavior(self)
 
