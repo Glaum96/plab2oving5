@@ -13,8 +13,8 @@ def main():
     bbcon1 = BBCON()
 
     motor1 = Motors()
-    motob1 = Motob(motor1)
-    bbcon1.motobs = [motob1]
+    #motob1 = Motob(motor1)
+    #bbcon1.motobs = [motob1]
 
     cam_sensor = FindRedSensob
     find_ball = FindAndFollowRedBallBehaviour(bbcon1, 1)

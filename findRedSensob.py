@@ -13,7 +13,7 @@ class FindRedSensob(Sensob):
         behaviors = [self.find_and_follow_red_ball]
         sensors = [self.camera]
         Sensob.__init__(self,sensors)
-        self.bilde = Imager('testingMagnus.jpg')
+        self.bilde = None #Imager('testingMagnus.jpg')  ## Removed for testing
         self.delta = self.bilde.xmax//5
         self.red_list = [0,0,0,0,0]
 

@@ -29,7 +29,7 @@ class FindAndFollowRedBallBehaviour(Behavior):
 
         """Rewrite to use the new method in motob '("T",x)'. Instead of F and S."""
 
-        print("behavior value: ", self.sensobs[0].value)
+        print("sensor value: ", self.sensobs[0].value)
         if max(self.red_list < 500):
             which_fifth = max(self.red_list)
             degrees = 30-which_fifth*15
@@ -41,4 +41,5 @@ class FindAndFollowRedBallBehaviour(Behavior):
         else:
             motor_recommendation = ("R",0.9)
 
+        print("motor value: ", motor_recommendation)
         self.motor_recommendation.update(self.priority * self.match_degree,motor_recommendation)
