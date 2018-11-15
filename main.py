@@ -42,6 +42,8 @@ def main():
 
     zumo_button = ZumoButton()                                  # Sets up pins and Zumobutton
 
+    # Add setup for camera, and add it to BBCON when we want to test everything together
+
     motor1.stop()                                               # Stop all motors
 
     print("\nAll creation is done, entering main loop\n")
