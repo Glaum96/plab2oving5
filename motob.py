@@ -76,7 +76,8 @@ class Motob:
                 self.motors.set_value([0.5, -0.5], 0.2)
 
         elif self.command == "J":
-            self.motors.set_value([0.5,0.5], 0.5)
+            #Rotates in place with speed on each wheel = 0.5 in different direction, for 0.5 seconds
+            self.motors.set_value([0.5,-0.5], 0.5)
         else:
             print("\n*********** ERROR: Illegal MR given to Motob **********\n")
             exit()
