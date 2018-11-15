@@ -8,6 +8,8 @@ from avoid_obstacle_behavior import AvoidObstacleBehavior
 from ir_sensob import IRSensob
 from follow_line_behavior import FollowLineBehavior
 from arbitrator import Arbitrator
+from findAndFollowRedBallBehavior import FindAndFollowRedBallBehavior
+from findRedSensob import FindRedSensob
 from zumo_button import ZumoButton
 
 from ultrasonic import Ultrasonic
@@ -45,6 +47,12 @@ def main():
     bbcon1.add_sensob(line_sensor)                              # Give BBCON the IR sensob
 
     # Add setup for camera, and add it to BBCON when we want to test everything together
+    camera_sensor = FindRedSensob()  # Create obstacle sensob
+    find_and_follow_behavior = FindAndFollowRedBallBehavior(bbcon1, 0.5)  # Create obstacle Behavior
+    camera_sensor.add_behavior(find_and_follow_behavior)  # Give sensob the behavior
+
+    bbcon1.add_behavior(find_and_follow_behavior)  # Give BBCON the behavior
+    bbcon1.add_sensob(camera_sensor)
 
     motor1.stop()                                               # Stop all motors
 
