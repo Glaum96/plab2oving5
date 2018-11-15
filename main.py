@@ -23,6 +23,7 @@ def main():
     motob1 = Motob(motor1)                                      # Create a motob
 
     bbcon1.motobs = [motob1]                                    # Give Motor to BBCON
+
     # Collision avoidance
     ultra_sensor = ObstacleDetectionSensob()                    # Create obstacle sensob
     avoid_object = AvoidObstacleBehavior(bbcon1, 1)             # Create obstacle Behavior
