@@ -22,6 +22,7 @@ class Motob:
         (F,x) = Drive straight forward with speed x
         (B,x) = Drive straight backward with speed x
         (T,x) = Rotate in place for 0.5 sec to right or left, depending on x. x<0 rotates clockwise
+        (H,x) = Hold still
         """
 
     def update(self, mr_touple):
@@ -37,7 +38,8 @@ class Motob:
         if self.halt_request:
             self.motors.stop()
             exit()
-            # Stop code
+        elif self.command == "H":
+            self.motors.stop()
         elif self.command == "S":              #What about timing?
             if self.degree < 0:
                 self.motors.set_value([0.4, -0.4])
@@ -45,7 +47,7 @@ class Motob:
                 self.motors.set_value([-0.4, 0.4])
         elif self.command == "L":
             self.motors.left(self.degree)
-        elif self.command =="R":
+        elif self.command == "R":
             self.motors.right(self.degree)
         elif self.command == "F":
             self.motors.forward(self.degree)
@@ -60,3 +62,4 @@ class Motob:
                 self.motors.set_value([0.5, -0.5], rotate)
         else:
             print("\n*********** ERROR: Illegal MR given to Motob **********\n")
+            exit()

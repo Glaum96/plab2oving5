@@ -27,14 +27,14 @@ class BBCON():
             self.inactive_behaviors.remove(behavior)
             self.active_behaviors.append(behavior)
         else:
-            print("Behaviour not known or already activated.")
+            print("behavior not known or already activated.")
 
     def deactivate_behavior(self,behavior):
         if behavior in self.active_behaviors:
             self.inactive_behaviors.append(behavior)
             self.active_behaviors.remove(behavior)
         else:
-            print("Behaviour not known or already deactivated.")
+            print("behavior not known or already deactivated.")
 
     def run_one_timestep(self):
         # Update all sensobs.
@@ -52,6 +52,9 @@ class BBCON():
 
         # Receive actions for each motob object, and a flag for if the robot should halt.
         # Input argument was made above
+        if len(motor_recommendations) is 0:
+            print("\nNo recomendations, exiting...\n")
+            exit()
         which_actions, should_halt = self.arbitrator.choose_action(motor_recommendations)
 
         # This is commented out as there are only one motob
