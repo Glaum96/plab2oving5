@@ -16,25 +16,21 @@ def main():
     motor1 = Motors()
     motob1 = Motob(motor1)
 
-    motob1.update((("T", 1), False))
-    #bbcon1.motobs = [motob1]
-
-    '''
+    bbcon1.motobs = [motob1]
 
     ultra_sensor = ObstacleDetectionSensob()
-
     avoid_object = AvoidObstacleBehavior(bbcon1, 1)
     ultra_sensor.add_behavior(avoid_object)
     bbcon1.add_behavior(avoid_object)
     bbcon1.add_sensob(ultra_sensor)
 
+    '''
     line_sensor = IRSensob()
     line_follow = FollowLineBehavior(bbcon1, 1)
     line_follow.add_sensob(line_sensor)
     bbcon1.add_behavior(line_follow)
     bbcon1.add_sensob(line_sensor)
     '''
-    """
     zumo_button = ZumoButton()
     zumo_button.wait_for_press()
     
@@ -42,6 +38,3 @@ def main():
         bbcon1.run_one_timestep()
         print("Iteration ", i)
     motor1.stop()
-
-
-    """

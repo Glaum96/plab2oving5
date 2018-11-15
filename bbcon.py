@@ -27,14 +27,14 @@ class BBCON():
             self.inactive_behaviors.remove(behavior)
             self.active_behaviors.append(behavior)
         else:
-            print("Behaviour not known or already activated.")
+            print("behavior not known or already activated.")
 
     def deactivate_behavior(self,behavior):
         if behavior in self.active_behaviors:
             self.inactive_behaviors.append(behavior)
             self.active_behaviors.remove(behavior)
         else:
-            print("Behaviour not known or already deactivated.")
+            print("behavior not known or already deactivated.")
 
     def run_one_timestep(self):
         # Update all sensobs.

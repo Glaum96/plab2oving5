@@ -5,7 +5,7 @@ from imager2 import Imager
 from behavior import Behavior
 from bbcon import BBCON
 
-class FindAndFollowRedBallBehaviour(Behavior):
+class FindAndFollowRedBallbehavior(Behavior):
 
     def __init__(self,myBBCON,priority):
         myFindRedSensob = FindRedSensob()
@@ -17,13 +17,13 @@ class FindAndFollowRedBallBehaviour(Behavior):
         self.sensobs[0].update()
         if max(self.red_list) < 300:
             self.active_flag = False
-            self.bbcon.deactivate_behaviour(self)
+            self.bbcon.deactivate_behavior(self)
 
 
     def consider_activation(self):
         if max(self.red_list >= 300):
             self.active_flag = True
-            self.bbcon.activate_behaviour(self)
+            self.bbcon.activate_behavior(self)
 
     def sense_and_act(self):
         print("behavior value: ", self.sensobs[0].value)
