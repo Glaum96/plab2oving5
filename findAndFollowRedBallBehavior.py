@@ -30,6 +30,7 @@ class FindAndFollowRedBallBehavior(Behavior):
 
     def sense_and_act(self):
         print("behavior value: ", self.sensobs[0].value)
+        print("Now in sense_and_act-function")
         print("Red list:",self.red_list)
         if max(self.red_list < 150):
             which_fifth = max(self.red_list)
