@@ -16,14 +16,12 @@ class AvoidObstacleBehavior(Behavior):
     def consider_deactivation(self):
         if self.sensobs[0].value > 20:
             self.active_flag = False
-            print("deactivated!")
             self.bbcon.deactivate_behavior(self)
 
     # Sets active_flag to True given certain conditions (OPTIONAL to define)
     def consider_activation(self):
         if self.sensobs[0].value <= 20:
             self.active_flag = True
-            print("activated!")
             self.bbcon.activate_behavior(self)
 
     # Performs the actual computations based on Sensob-values to produce
@@ -37,7 +35,7 @@ class AvoidObstacleBehavior(Behavior):
         else:
             motor_recommendation = ('H',0.0)
            
-       if self.sensobs[0].value == 0:
+        if self.sensobs[0].value == 0:
             motor_recomendation = ('H',0.0)
             self.match_degree = 0
         #if self.sensobs[0].value < 1:
