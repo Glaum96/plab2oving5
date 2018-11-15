@@ -16,8 +16,6 @@ class FindAndFollowRedBallBehavior(Behavior):
         #print("Self.sensobs[0].get_value():",self.sensobs[0].get_value())
 
     def consider_deactivation(self):
-        print("Sensor values: ", self.sensobs[0].value)
-        print("Max: ", max(self.sensobs[0].value))
         if max(self.sensobs[0].value) < 100:
             print("Deactivating")
             self.active_flag = False
@@ -30,10 +28,7 @@ class FindAndFollowRedBallBehavior(Behavior):
             self.bbcon.activate_behavior(self)
 
     def sense_and_act(self):
-        print("behavior value: ", self.sensobs[0].value)
         print("Now in sense_and_act-function")
-        print("Red list:",self.sensobs[0].value)
-
         which_fifth = 0
         maximum = self.sensobs[0].value[0]
         for i in range(1,len(self.sensobs[0].value)):
