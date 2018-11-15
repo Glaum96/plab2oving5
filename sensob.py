@@ -28,14 +28,6 @@ class Sensob:
         if self.active_flag:
             self.update_values()
         return self.active_flag
-        # NOTE: Subclasses must call superclass update()-method
-        # before they process data and update self.value
-        # FORMAT OF update() IN SUBCLASS:
-        # def update(self):
-        #     if super(MySensobSubClass, self).update():
-        #         ...
-        #         *Your code here*
-        #         ...
 
     def get_sensor_values(self):
         return self.sensor_values
