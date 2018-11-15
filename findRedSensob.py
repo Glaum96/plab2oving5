@@ -59,4 +59,5 @@ class FindRedSensob(Sensob):
             for j in range(self.bilde.ymax):
                 if self.is_red_pixel(i,j):
                     which_fifth = i//self.delta
-                    self.value[which_fifth] += 1
+                    #print("which fifth: ", which_fifth)
+                    self.value[which_fifth - 1] += 1

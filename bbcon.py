@@ -56,7 +56,7 @@ class BBCON():
         # Input argument was made above
         if len(motor_recommendations) is 0:
             print("\nNo recommendations, exiting...\n")
-            return False
+            return True
         which_actions, should_halt = self.arbitrator.choose_action(motor_recommendations)
 
         # This is commented out as there are only one motob

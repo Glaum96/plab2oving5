@@ -36,10 +36,11 @@ def main():
     while q is not 'q':
         zumo_button.wait_for_press()
 
-        for i in range(0, 100):
+        for i in range(0, 10):
             print("Iteration " + str(i))
             if bbcon1.run_one_timestep():
                 motor1.stop()
                 exit()
         motor1.stop()
         q = input("Press 'q' to quit: ")
+    exit()

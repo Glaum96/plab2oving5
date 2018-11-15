@@ -16,7 +16,7 @@ class FindAndFollowRedBallBehavior(Behavior):
         #print("Self.sensobs[0].get_value():",self.sensobs[0].get_value())
 
     def consider_deactivation(self):
-        if max(self.sensobs[0].value) < 100:
+        if max(self.sensobs[0].value) < 0:  # CHANGE LATER
             print("Deactivating")
             self.active_flag = False
             self.bbcon.deactivate_behavior(self)
@@ -36,13 +36,13 @@ class FindAndFollowRedBallBehavior(Behavior):
                 maximum = self.sensobs[0].value[i]
                 which_fifth = i
 
-        if max(self.sensobs[0].value) > 150:
+        if max(self.sensobs[0].value) > 100:
             if which_fifth == 2:
                 motor_recommendation = ('F',0.3)
             elif which_fifth == 0 or which_fifth == 1:
-                motor_recommendation = ('T', 1)
-            else:
                 motor_recommendation = ('T', -1)
+            else:
+                motor_recommendation = ('T', 1)
         else:
             motor_recommendation = ('J', 1)
 

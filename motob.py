@@ -71,9 +71,9 @@ class Motob:
             """This is a simple version, which only rotates a little. If it rotates too much, then 
             change the the last 0.5 in both commands below to something smaller, like 0.25"""
             if self.degree > 0:
-                self.motors.set_value([0.5, -0.5], 0.2)
+                self.motors.set_value([0.5, -0.5], 0.15)
             else:
-                self.motors.set_value([0.5, -0.5], 0.2)
+                self.motors.set_value([-0.5, 0.5], 0.15)
 
         elif self.command == "J":
             #Rotates in place with speed on each wheel = 0.5 in different direction, for 0.5 seconds
