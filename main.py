@@ -18,6 +18,7 @@ import time
 def main():
 
     zumo_button = ZumoButton()  # Sets up pins and Zumobutton
+    zumo_button.wait_for_press()
 
     bbcon1 = BBCON()                                            # Create BBCON
 
@@ -51,7 +52,6 @@ def main():
     q = input("Press 'q' to quit: ")
 
     while q is not 'q':
-        zumo_button.wait_for_press()
 
         for i in range(0, 100):
             bbcon1.run_one_timestep()
