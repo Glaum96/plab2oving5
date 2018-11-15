@@ -62,5 +62,5 @@ class Behavior:
         s += "weight: " + str("%.2f" % self.motor_recommendation.weight) + ", "
         s += "rec: " + str(self.motor_recommendation.recommendation) + ", "
         s += "halt: " + str(self.motor_recommendation.halt_request) + ", "
-        s += str(self.__class__.__name__) + "]"
+        s += str(self.__class__.__name__)[0:5] + "]"
         return s

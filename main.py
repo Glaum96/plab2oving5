@@ -16,6 +16,9 @@ import time
 
 
 def main():
+
+    zumo_button = ZumoButton()  # Sets up pins and Zumobutton
+
     bbcon1 = BBCON()                                            # Create BBCON
 
     #Motors
@@ -40,16 +43,13 @@ def main():
     bbcon1.add_behavior(line_follow)                            # Give BBCON the linefollow
     bbcon1.add_sensob(line_sensor)                              # Give BBCON the IR sensob
 
-    zumo_button = ZumoButton()                                  # Sets up pins and Zumobutton
-
     # Add setup for camera, and add it to BBCON when we want to test everything together
 
     motor1.stop()                                               # Stop all motors
 
     print("\nAll creation is done, entering main loop\n")
+    q = input("Press 'q' to quit: ")
 
-
-    q = ""
     while q is not 'q':
         zumo_button.wait_for_press()
 
