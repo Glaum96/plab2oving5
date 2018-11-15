@@ -5,24 +5,26 @@ from arbitrator import Arbitrator
 class BBCON():
 
     def __init__(self):
-        self.behaviors = []
-        self.active_behaviors = []
-        self.inactive_behaviors = []
-        self.sensobs = []
-        self.motobs = []
-        self.arbitrator = Arbitrator(self,True)
-        self.current_timestep = 0
-        # self.currentRobot = 0
+        self.behaviors = []                                     # Stores all behaviors
+        self.active_behaviors = []                              # Stores the active behaviors
+        self.inactive_behaviors = []                            # Stores the inactive behaviors
+        self.sensobs = []                                       # Stores the sensobs
+        self.motobs = []                                        # Stores the motob
+        self.arbitrator = Arbitrator(self,True)                 # Createas and stores a deterministic arbitrator
+        self.current_timestep = 0                               # Timestep at start is 0
 
     def add_behavior(self,behavior):
+        #Adds a behavior
         self.behaviors.append(behavior)
-        # Adds to active instead of inact   ive
+        # Adds to active instead of inactive
         self.active_behaviors.append(behavior)
 
     def add_sensob(self,sensob):
+        #Adds a sensob
         self.sensobs.append(sensob)
 
     def activate_behavior(self,behavior):
+        # Activates a behavior
         if behavior in self.inactive_behaviors:
             self.inactive_behaviors.remove(behavior)
             self.active_behaviors.append(behavior)
@@ -30,6 +32,7 @@ class BBCON():
             print("behavior not known or already activated.")
 
     def deactivate_behavior(self,behavior):
+        # Deactivates a behavior
         if behavior in self.active_behaviors:
             self.inactive_behaviors.append(behavior)
             self.active_behaviors.remove(behavior)
@@ -37,6 +40,8 @@ class BBCON():
             print("behavior not known or already deactivated.")
 
     def run_one_timestep(self):
+        #The main function of BBCON
+
         # Update all sensobs.
         for sensob in self.sensobs:
             sensob.update()

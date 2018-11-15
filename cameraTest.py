@@ -9,6 +9,7 @@ from findRedSensob import FindRedSensob
 from findAndFollowRedBallBehavior import FindAndFollowRedBallBehavior
 import time
 
+"""This file is used for testing the camera, and is not a part of the robot"""
 
 def main():
     bbcon1 = BBCON()  # Create BBCON
