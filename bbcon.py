@@ -48,6 +48,7 @@ class BBCON():
         # BBCON creates list of motor_recommendation objects from active_behaviors
         motor_recommendations = []
         for rec in self.active_behaviors:
+            print(rec.__class__.__name__, " weight: ", rec.motor_recommendation.weight)
             motor_recommendations.append(rec.motor_recommendation)
 
         # Receive actions for each motob object, and a flag for if the robot should halt.

@@ -5,6 +5,8 @@ from motob import Motob
 from motors import Motors
 from obstacle_detection_sensob import ObstacleDetectionSensob
 from avoid_obstacle_behavior import AvoidObstacleBehavior
+from ir_sensob import IRSensob
+from follow_line_behavior import FollowLineBehavior
 from arbitrator import Arbitrator
 from zumo_button import ZumoButton
 
@@ -26,13 +28,15 @@ def main():
     ultra_sensor.add_behavior(avoid_object)
     bbcon1.add_behavior(avoid_object)
     bbcon1.add_sensob(ultra_sensor)
+
     """
     line_sensor = IRSensob()
     line_follow = FollowLineBehavior(bbcon1, 1)
     line_follow.add_sensob(line_sensor)
     bbcon1.add_behavior(line_follow)
     bbcon1.add_sensob(line_sensor)
-    '''
+    """
+
     q = ""
     while q is not 'q':
         zumo_button = ZumoButton()

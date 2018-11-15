@@ -23,6 +23,7 @@ class Arbitrator:
 
     def choose_action_deterministic(self):
         self.recommendations.sort(key=lambda x: x.weight, reverse=True)  # Sort the motor_recommendations by weight
+
         return (self.recommendations[0].recommendation, self.recommendations[0].halt_request)
 
 
