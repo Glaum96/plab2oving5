@@ -7,8 +7,11 @@ from obstacle_detection_sensob import ObstacleDetectionSensob
 from avoid_obstacle_behavior import AvoidObstacleBehavior
 from arbitrator import Arbitrator
 from zumo_button import ZumoButton
+
 from ultrasonic import Ultrasonic
 import time
+
+
 
 def main():
     bbcon1 = BBCON()
@@ -23,8 +26,7 @@ def main():
     ultra_sensor.add_behavior(avoid_object)
     bbcon1.add_behavior(avoid_object)
     bbcon1.add_sensob(ultra_sensor)
-
-    '''
+    """
     line_sensor = IRSensob()
     line_follow = FollowLineBehavior(bbcon1, 1)
     line_follow.add_sensob(line_sensor)
