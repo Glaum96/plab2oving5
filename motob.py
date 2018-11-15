@@ -47,7 +47,7 @@ class Motob:
                 self.motors.set_value([-0.4, 0.4])
         elif self.command == "L":
             self.motors.left(self.degree)
-        elif self.command =="R":
+        elif self.command == "R":
             self.motors.right(self.degree)
         elif self.command == "F":
             self.motors.forward(self.degree)
@@ -60,3 +60,4 @@ class Motob:
                 self.motors.set_value([0.4, -0.4], 0.5)
         else:
             print("\n*********** ERROR: Illegal MR given to Motob **********\n")
+            exit()
